@@ -16,7 +16,7 @@ const PostList = () => {
   }, []);
 
   return (
-    <ul>
+    <ul className="list">
       {
         posts && posts.map(({ id, title, userId, body }) => <PostItem key={id} title={title} username={userId} body={body} />)
       }
