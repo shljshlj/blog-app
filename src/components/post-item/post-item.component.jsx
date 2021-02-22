@@ -8,9 +8,13 @@ const PostItem = ({ title, username, body }) => {
         </h3>
       </header>
       <div className="pa3 bt b--black-10">
-        <p className="f6 f5-ns lh-copy measure">
-          {body}
-        </p>
+        {
+          body.map((paragraph, i) => (
+            <p key={i} className="f6 f5-ns lh-copy measure mv0">
+              {paragraph}
+            </p>
+          ))
+        }
       </div>
     </li>
   )

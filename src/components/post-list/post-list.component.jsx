@@ -4,16 +4,22 @@ import PostItem from '../post-item/post-item.component';
 
 const PostList = () => {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const getPosts = async () => {
+      setLoading(true);
       const res = await postService.fetchPosts();
-      console.log(res);
       setPosts(res);
+      setLoading(false);
     }
 
     getPosts();
   }, []);
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
 
   return (
     <ul className="list">
