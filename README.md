@@ -1,4 +1,7 @@
 # Blog App
+Check the live [DEMO](https://blogg-app.netlify.app/)
+
+## Features
 - [x] Display list of posts
 - [ ] Display list of users
 - [ ] Display single post with comments
