@@ -6,7 +6,13 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <PostList />
+      <div className="homepage__title">
+        <h1>Welcome!</h1>
+        <h2>Check the latest posts</h2>
+      </div>
+      <main>
+        <PostList />
+      </main>
     </div>
   );
 }

@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightblue;
+}
+
+.page-logo {
+  &__link {
+    padding: 1em;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+  }
+}

@@ -43,7 +43,7 @@ const PostList = () => {
       </ul>
       <Pagination totalPosts={totalPosts} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage} />
     </>
-  )
+  );
 }
 
 export default PostList;
