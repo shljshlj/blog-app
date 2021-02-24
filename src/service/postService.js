@@ -7,13 +7,15 @@ class PostService {
 
     return fetch(POSTS_API)
       .then(response => response.json())
-      .then(posts => {
-        return posts.map(post => {
+      .then(data => {
+        const count = data.length;
+        const formatedPosts = data.map(post => {
           const newPostTitle = formatSentences(post.title)[0].trim().slice(0, -1);
-          console.log(newPostTitle);
           const newPostBody = formatSentences(post.body);
           return { ...post, title: newPostTitle, body: newPostBody }
-        })
+        });
+
+        return { formatedPosts, count }
       })
   }
 }

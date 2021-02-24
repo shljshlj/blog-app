@@ -1,5 +1,6 @@
-
 import PostList from '../../components/post-list/post-list.component';
+
+import './homepage.styles.scss';
 
 const HomePage = () => {
 
