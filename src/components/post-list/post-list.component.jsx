@@ -3,7 +3,7 @@ import { postService } from '../../service/postService';
 import Pagination from '../pagination/pagination.component';
 import PostItem from '../post-item/post-item.component';
 
-const PostList = () => {
+const PostList = ({ userId = null }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -13,14 +13,14 @@ const PostList = () => {
   useEffect(() => {
     const getPosts = async () => {
       setLoading(true);
-      const { formatedPosts, count } = await postService.fetchPosts();
+      const { formatedPosts, count } = await postService.fetchPosts(userId);
       setPosts(formatedPosts);
       setTotalPosts(count);
       setLoading(false);
     }
 
     getPosts();
-  }, []);
+  }, [userId]);
 
   // Get currentPage posts from an array of posts
   const endPostIndex = currentPage * postsPerPage; // zero-based index before which to end extraction // 1 * 10  = 10

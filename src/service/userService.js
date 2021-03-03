@@ -3,10 +3,10 @@ import { API_ENDPOINT } from '../shared/constants';
 import User from '../models/User';
 
 class UserService {
-  fetchUsers = () => {
-    const USERS_API = `${API_ENDPOINT}/users`;
+  fetchUsers() {
+    const USERS_ENDPOINT = `${API_ENDPOINT}/users`;
 
-    return fetch(USERS_API)
+    return fetch(USERS_ENDPOINT)
       .then(response => response.json())
       .then(data => {
         const userPreviews = data.map(userData => {
@@ -15,8 +15,18 @@ class UserService {
           const avatarSVG = user.getAvatarCode();
           return { ...user.getUserPreview(), avatarSVG };
         });
-        console.log(userPreviews)
+
         return userPreviews;
+      });
+  }
+
+  fetchSingleUser(userId) {
+    const USER_ENDPOINT = `${API_ENDPOINT}/users/${userId}`;
+
+    return fetch(USER_ENDPOINT)
+      .then(response => response.json())
+      .then(({ id, name, username, address, company, email, phone, website }) => {
+        return new User(id, name, username, address, company, email, phone, website)
       });
   }
 }

@@ -1,11 +1,16 @@
 import { API_ENDPOINT } from '../shared/constants';
 import { formatSentences } from '../shared/utils';
 
-class PostService {
-  fetchPosts = () => {
-    const POSTS_API = `${API_ENDPOINT}/posts`;
+const ENDPOINTS = (userId = null) => ({
+  ALL_POSTS: `${API_ENDPOINT}/posts`,
+  USER_POSTS: `${API_ENDPOINT}/users/${userId}/posts`
+});
 
-    return fetch(POSTS_API)
+class PostService {
+  fetchPosts(userId = null) {
+    const endpoint = userId ? ENDPOINTS(userId)['USER_POSTS'] : ENDPOINTS()['ALL_POSTS'];
+
+    return fetch(endpoint)
       .then(response => response.json())
       .then(data => {
         const count = data.length;
