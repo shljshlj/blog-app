@@ -1,8 +1,8 @@
 .post-item {
+  width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   background-color: #fff;
-  // padding: 1em;
   margin-bottom: 1em;
   overflow: hidden;
 
@@ -10,7 +10,6 @@
     padding: 0.8em 1em;
     background-color: rgba(188, 143, 143, 0.2);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    // box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     display: flex;
   }
 
@@ -43,5 +42,11 @@
 
   &__title {
     margin-bottom: 0.5em;
+  }
+
+  &__body {
+    p {
+      text-overflow: initial;
+    }
   }
 }

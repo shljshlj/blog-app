@@ -1,17 +1,22 @@
+import { Link } from 'react-router-dom';
+
 import './post-item.styles.scss';
 
-const PostItem = ({ post: { name, title, body, avatarUrl } }) => {
-  // console.log(post);
+const PostItem = ({ post: { userId, name, title, body, avatarUrl } }) => {
   return (
     <li className="post-item">
       <header className="post-item__header">
-        <div className="post-item__avatar">
-          <img src={avatarUrl} alt={`${name}'s avatar`} />
-        </div>
+        <Link to={`/users/${userId}`}>
+          <div className="post-item__avatar">
+            <img src={avatarUrl} alt={`${name}'s avatar`} />
+          </div>
+        </Link>
 
         <div className="post-item__meta">
           <h3>
-            {name}
+            <Link to={`/users/${userId}`}>
+              {name}
+            </Link>
           </h3>
           <span>Timestamp</span>
         </div>
@@ -24,7 +29,7 @@ const PostItem = ({ post: { name, title, body, avatarUrl } }) => {
         <div className="post-content__body">
           {
             body.map((paragraph, i) => (
-              <p key={i} className="">
+              <p key={i}>
                 {paragraph}
               </p>
             ))

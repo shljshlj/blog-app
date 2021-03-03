@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import PostList from '../../components/post-list/post-list.component';
-// import UserPosts from '../../components/user-posts/user-posts.component';
 import { userService } from '../../service/userService';
 
 import './userpage.styles.scss';
@@ -27,13 +26,11 @@ const UserPage = ({ match }) => {
     );
   }
 
-  console.log(user)
-
   return (
     <div className="user-page">
       <div className="user-header">
         <div className="user-header__avatar">
-          <img src={user.getAvatarCode()} alt={`${user.name}' avatar`} />
+          <img src={user.getAvatarUrl()} alt={`${user.name}' avatar`} />
         </div>
         <div className="user-header__title">
           <h1>{user.name}</h1>
@@ -43,10 +40,25 @@ const UserPage = ({ match }) => {
 
       <div className="user-content">
         <div className="user-content__aside">
-          <div className="user-info"></div>
-          <div className="user-company"></div>
+          <div className="user-section user-info">
+            <div className="user-section__title">
+              <h2>Info</h2>
+            </div>
+          </div>
+
+          <div className="user-section user-company">
+            <div className="user-section__title">
+              <h2>Company</h2>
+            </div>
+          </div>
         </div>
+
         <div className="user-content__main">
+          <div className="user-section user-posts">
+            <div className="user-section__title ">
+              <h2>Posts</h2>
+            </div>
+          </div>
           <PostList userId={userId} />
         </div>
       </div>

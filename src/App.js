@@ -4,7 +4,6 @@ import Footer from './components/footer/footer.component';
 import AboutPage from './pages/aboutpage/aboutpage.component';
 import HomePage from './pages/homepage/homepage.component';
 import PostPage from './pages/postpage/postpage.component';
-// import UserPage from './pages/userpage/userpage.component';
 import UsersPage from './pages/userspage/userspage.component';
 
 function App() {

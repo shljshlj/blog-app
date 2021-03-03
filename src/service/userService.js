@@ -1,5 +1,4 @@
 import { API_ENDPOINT } from '../shared/constants';
-// import { formatSentences } from '../shared/utils';
 import User from '../models/User';
 
 class UserService {

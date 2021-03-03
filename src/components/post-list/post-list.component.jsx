@@ -37,7 +37,7 @@ const PostList = ({ userId = null }) => {
 
   return (
     <>
-      <ul className="list">
+      <ul className="post-list">
         {
           currentPosts && currentPosts.map((post) => <PostItem key={post.id} post={post} />)
         }
