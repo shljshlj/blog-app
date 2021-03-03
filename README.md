@@ -3,7 +3,8 @@ Check the live [DEMO](https://blogg-app.netlify.app/)
 
 ## Features
 - [x] Display list of posts
-- [ ] Display list of users
+- [x] Display list of users
+- [ ] Display single user page
 - [ ] Display single post with comments
 - [x] Pagination
 - [ ] Pagination with URL parameters
