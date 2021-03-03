@@ -12,8 +12,8 @@ class UserService {
         const userPreviews = data.map(userData => {
           const { id, name, username, address, company } = userData;
           const user = new User(id, name, username, address, company);
-          const avatarSVG = user.getAvatarCode();
-          return { ...user.getUserPreview(), avatarSVG };
+          const avatarUrl = user.getAvatarUrl();
+          return { ...user.getUserPreview(), avatarUrl };
         });
 
         return userPreviews;

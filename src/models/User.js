@@ -20,7 +20,7 @@ class User {
     }
   }
 
-  getAvatarCode() {
+  getAvatarUrl() {
     return `https://api.multiavatar.com/${this.username}.svg`;
   }
 }

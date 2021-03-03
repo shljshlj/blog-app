@@ -13,8 +13,9 @@ const PostList = ({ userId = null }) => {
   useEffect(() => {
     const getPosts = async () => {
       setLoading(true);
-      const { formatedPosts, count } = await postService.fetchPosts(userId);
-      setPosts(formatedPosts);
+      const { posts, count } = await postService.fetchPosts(userId);
+
+      setPosts(posts);
       setTotalPosts(count);
       setLoading(false);
     }
@@ -38,7 +39,7 @@ const PostList = ({ userId = null }) => {
     <>
       <ul className="list">
         {
-          currentPosts && currentPosts.map(({ id, title, userId, body }) => <PostItem key={id} title={title} username={userId} body={body} />)
+          currentPosts && currentPosts.map((post) => <PostItem key={post.id} post={post} />)
         }
       </ul>
       <Pagination totalPosts={totalPosts} postsPerPage={postsPerPage} paginate={paginate} currentPage={currentPage} />

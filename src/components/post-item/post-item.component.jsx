@@ -1,20 +1,35 @@
-const PostItem = ({ title, username, body }) => {
+import './post-item.styles.scss';
+
+const PostItem = ({ post: { name, title, body, avatarUrl } }) => {
+  // console.log(post);
   return (
-    <li className=" center mw5 mw6-ns mw7-l br3 ba b--black-10 mv4 ">
-      <header className="bg-near-white b3 br--top pv2 ph3">
-        <h2 className="post-title f4 mv2">{title}</h2>
-        <h3 className="post-author black-60 mt0 mb2">
-          {username}
-        </h3>
+    <li className="post-item">
+      <header className="post-item__header">
+        <div className="post-item__avatar">
+          <img src={avatarUrl} alt={`${name}'s avatar`} />
+        </div>
+
+        <div className="post-item__meta">
+          <h3>
+            {name}
+          </h3>
+          <span>Timestamp</span>
+        </div>
       </header>
-      <div className="pa3 bt b--black-10">
-        {
-          body.map((paragraph, i) => (
-            <p key={i} className="f6 f5-ns lh-copy measure mv0">
-              {paragraph}
-            </p>
-          ))
-        }
+
+      <div className="post-content">
+        <div className="post-content__title">
+          <h2>{title}</h2>
+        </div>
+        <div className="post-content__body">
+          {
+            body.map((paragraph, i) => (
+              <p key={i} className="">
+                {paragraph}
+              </p>
+            ))
+          }
+        </div>
       </div>
     </li>
   )

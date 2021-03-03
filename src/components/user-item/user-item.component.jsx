@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 import './user-item.styles.scss';
 
-const UserItem = ({ user: { id, name, username, city, companyName, avatarSVG }, path }) => {
+const UserItem = ({ user: { id, name, username, city, companyName, avatarUrl }, path }) => {
   return (
     <li className="user-item">
       <div className="avatar">
         <Link to={`${path}/${id}`}>
           <div className="avatar__container">
-            <img src={avatarSVG} alt={`${name}'s avatar`} />
+            <img src={avatarUrl} alt={`${name}'s avatar`} />
           </div>
         </Link>
       </div>
