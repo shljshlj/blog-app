@@ -1,0 +1,55 @@
+.user-item {
+  display: flex;
+  padding: 1em 0;
+  font-size: 0.95rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &__title {
+    margin-bottom: 1em;
+    h2 {
+      margin-bottom: 0.3em;
+    }
+
+    span {
+      font-size: 0.9em;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+
+    span {
+      margin: 0.2em 0;
+    }
+  }
+
+  .avatar {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 1em;
+
+    &__container {
+      width: 62px;
+      height: 62px;
+
+      @media (min-width: 768px) {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
