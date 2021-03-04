@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PostList from '../../components/post-list/post-list.component';
 import { userService } from '../../service/userService';
 
@@ -26,6 +27,7 @@ const UserPage = ({ match }) => {
     );
   }
 
+  console.log(user)
   return (
     <div className="user-page">
       <div className="user-header">
@@ -40,13 +42,39 @@ const UserPage = ({ match }) => {
 
       <div className="user-content">
         <div className="user-content__aside">
-          <div className="user-section user-info">
+
+          <div className="user-section user-section--info">
             <div className="user-section__title">
               <h2>Info</h2>
+              <div className="user-section--info__email">
+                <div className="icon--email">
+                  <span>Icon</span>
+                </div>
+                <div>
+                  {user.email}
+                </div>
+              </div>
+              <div className="user-section--info__website">
+                <div className="icon--website">
+                  <span>Icon</span>
+                </div>
+                <div>
+                  <a href={"http://" + user.website} rel="noreferrer noopener">{user.website}</a>
+                  {/* <Link to={{ pathname: "http://" + user.website }} target="_blank">{user.website}</Link> */}
+                </div>
+              </div>
+              <div className="user-section--info__phone">
+                <div className="icon--phone">
+                  <span>Icon</span>
+                </div>
+                <div>
+                  {user.phone}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="user-section user-company">
+          <div className="user-section user-section--company">
             <div className="user-section__title">
               <h2>Company</h2>
             </div>
@@ -54,7 +82,7 @@ const UserPage = ({ match }) => {
         </div>
 
         <div className="user-content__main">
-          <div className="user-section user-posts">
+          <div className="user-section user-section--posts">
             <div className="user-section__title ">
               <h2>Posts</h2>
             </div>
