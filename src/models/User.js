@@ -3,11 +3,9 @@ class User {
     this.id = id;
     this.name = name;
     this.username = username;
-    this.address = address;
-    this.company = company;
-    this.email = email;
-    this.phone = phone;
-    this.website = website;
+    this.address = address && createInfoObjArray(address);
+    this.company = company && createInfoObjArray(company);
+    this.contact = createInfoObjArray({ email, phone, website });
   }
 
   getUserPreview() {
@@ -23,6 +21,15 @@ class User {
   getAvatarUrl() {
     return `https://api.multiavatar.com/${this.username}.svg`;
   }
+}
+
+function createInfoObjArray(dataObj) {
+  const arr = [];
+  for (const property in dataObj) {
+    arr.push({ type: property, info: dataObj[property] })
+  }
+
+  return arr;
 }
 
 export default User;
