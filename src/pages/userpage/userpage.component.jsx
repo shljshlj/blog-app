@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { userService } from '../../service/userService';
 
 import { InfoSection, InfoSectionRow } from '../../components/user-info/user-info.component';
+import PhotoSection from '../../components/photo-section/photo-section.component';
 import PostList from '../../components/post-list/post-list.component';
 
 import './userpage.styles.scss';
@@ -42,8 +43,12 @@ const UserPage = () => {
 
         <div className="user-content">
           <div className="user-content__aside">
-            <InfoSection title='About'>
+            <InfoSection title="About">
               {user.getShortInfo().map(info => <InfoSectionRow key={info.infoType} info={info} />)}
+            </InfoSection>
+
+            <InfoSection title="Photos">
+              <PhotoSection />
             </InfoSection>
           </div>
 
