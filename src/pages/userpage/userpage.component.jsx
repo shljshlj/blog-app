@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { userService } from '../../service/userService';
 
-import { InfoSection, InfoSubsection } from '../../components/user-info/user-info.component';
+import { InfoSection, InfoSectionRow } from '../../components/user-info/user-info.component';
 import PostList from '../../components/post-list/post-list.component';
 
 import './userpage.styles.scss';
 
 const UserPage = () => {
   const { userId } = useParams();
-
-
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -45,8 +43,7 @@ const UserPage = () => {
         <div className="user-content">
           <div className="user-content__aside">
             <InfoSection title='About'>
-              <InfoSubsection title='Contact' data={user.contact} withIcon={true} />
-              <InfoSubsection title='Company' data={user.company} withIcon={false} />
+              {user.getShortInfo().map(info => <InfoSectionRow key={info.infoType} info={info} />)}
             </InfoSection>
           </div>
 

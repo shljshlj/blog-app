@@ -9,7 +9,6 @@ const UserList = ({ path }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log(userService)
     const getUsers = async () => {
       setLoading(true);
       const userPreviews = await userService.fetchUsers();

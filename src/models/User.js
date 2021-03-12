@@ -3,9 +3,11 @@ class User {
     this.id = id;
     this.name = name;
     this.username = username;
-    this.address = address && createInfoObjArray(address);
-    this.company = company && createInfoObjArray(company);
-    this.contact = createInfoObjArray({ email, phone, website });
+    this.address = address;
+    this.company = company;
+    this.email = email;
+    this.phone = phone;
+    this.website = website;
   }
 
   getUserPreview() {
@@ -19,10 +21,28 @@ class User {
   }
 
   getAvatarUrl() {
-    return `https://api.multiavatar.com/${this.username}.svg`;
+    return `https://api.multiavatar.com/${this.id}.svg`;
+  }
+
+  getShortInfo() {
+    return [
+      ['website', this.website],
+      ['address', this.address ? this.address.city : null, 'Lives in'],
+      ['company', this.company ? this.company.name : null, 'Works at']
+    ].map(infoArr => {
+      return {
+        infoType: infoArr[0],
+        infoValue: infoArr[1],
+        text: infoArr[2] ? `${infoArr[2].trim()} ` : null
+      }
+    });
   }
 }
 
+export default User;
+
+
+/*
 function createInfoObjArray(dataObj) {
   const arr = [];
   for (const property in dataObj) {
@@ -31,10 +51,7 @@ function createInfoObjArray(dataObj) {
 
   return arr;
 }
-
-export default User;
-
-
+*/
 
 /*
 "id": 1,

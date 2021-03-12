@@ -8,7 +8,7 @@ const IconSvg = ({ name, ...rest }) => {
     setLoading(true);
     const importIcon = async () => {
       try {
-        ImportedIconRef.current = (await import(`!!@svgr/webpack?-svgo,+titleProp,+ref!../../assets/icons/${name}.svg`)).default;
+        ImportedIconRef.current = (await import(`!!@svgr/webpack?-svgo,+titleProp,+ref!../../assets/icons/filled/${name.toLowerCase()}.svg`)).default;
       } catch (err) {
         throw err;
       } finally {
